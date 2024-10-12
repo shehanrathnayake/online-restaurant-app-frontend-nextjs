@@ -1,5 +1,6 @@
 'use client'
 
+import Cart from "@/components/Cart";
 import { Navigation } from "@/components/Navigation";
 import { RestaurantList } from "@/components/RestaurantList";
 import { useState } from "react";

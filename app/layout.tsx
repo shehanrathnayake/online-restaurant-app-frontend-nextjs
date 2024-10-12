@@ -2,9 +2,9 @@
 
 import localFont from "next/font/local";
 import "./globals.css";
-import { Navigation } from "@/components/Navigation";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { useEffect, useState } from "react";
+import { AppProvider } from "@/context/AppContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -50,11 +50,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ApolloProvider client={client}>
-          <div 
-            className="container mx-auto px-4"
-          >
-              {children}
-          </div>
+          <AppProvider>
+            <div 
+                className="container mx-auto px-4"
+              >
+                {children}
+            </div>
+          </AppProvider>
         </ApolloProvider>
         
       </body>

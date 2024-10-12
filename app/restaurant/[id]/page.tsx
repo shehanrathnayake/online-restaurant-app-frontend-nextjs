@@ -1,6 +1,9 @@
 'use client';
 
+import Cart from "@/components/Cart";
 import Loader from "@/components/Loader";
+import { Navigation } from "@/components/Navigation";
+import { useAppContext } from "@/context/AppContext";
 import { centsToDollars } from "@/utils/centsToDollars";
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "next/navigation";
@@ -21,7 +24,8 @@ export default function Restaurant() {
   
       return (
         <div className="py-6">
-          <h1 className="text-4xl font-bold text-green-600">
+          <Navigation />
+          <h1 className="text-4xl font-bold text-yellow-600">
             {restaurant.name}
           </h1>
           <div className="py-16 px-8 bg-white rounded-3xl">
@@ -41,8 +45,12 @@ export default function Restaurant() {
   }
 
   function DishCard({ data }) {
+    const { addItem, setShowCart } = useAppContext();
+
     function handleAddItem() {
-      // will add some logic here
+      console.log("handleAddItem: ", data);
+      addItem(data);
+      setShowCart(true);
     }
   
     return (
