@@ -62,7 +62,7 @@ export default function Cart() {
       <div className="relative">
         <button
           onClick={() => setShowCart((prevState) => !prevState)}
-          className=" bg-green-500 text-white p-3 rounded-full hover:bg-yellow-500 items-center"
+          className=" bg-yellow-500 text-white p-3 rounded-full hover:bg-yellow-500 items-center"
         >
           <svg
             width="24"
@@ -107,7 +107,7 @@ export default function Cart() {
                 </div>
                 <button
                   onClick={() => (user ? cartRedirect() : loginRedirect())}
-                  className="inline-block w-full px-6 py-3 text-center font-bold text-white bg-green-500 hover:bg-green-600 transition duration-200 rounded-full"
+                  className="inline-block w-full px-6 py-3 text-center font-bold text-white bg-yellow-500 hover:bg-yellow-600 transition duration-200 rounded-full"
                 >
                   {user ? "Continue To Pay" : "Login to Order"}
                 </button>

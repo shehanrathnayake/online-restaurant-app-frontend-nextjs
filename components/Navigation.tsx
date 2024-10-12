@@ -42,7 +42,7 @@ export function Navigation() {
                       {user.username}
                     </span>
                     <button
-                      className="inline-block py-2 px-4 text-sm leading-5 text-green-50 bg-green-500 hover:bg-green-600 font-medium focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md"
+                      className="inline-block py-2 px-4 text-sm leading-5 text-green-50 bg-yellow-500 hover:bg-yellow-600 font-medium focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 rounded-md"
                       onClick={handleLogout}
                     >
                       Log Out
@@ -57,7 +57,7 @@ export function Navigation() {
                       Log In
                     </Link>
                     <Link
-                      className="inline-block py-2 px-4 text-sm leading-5 text-green-50 bg-green-600 hover:bg-green-700 font-medium focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md"
+                      className="inline-block py-2 px-4 text-sm leading-5 text-green-50 bg-yellow-600 hover:bg-yellow-700 font-medium focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 rounded-md"
                       href="/register"
                     >
                       Sign Up
