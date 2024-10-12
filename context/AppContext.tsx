@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, createContext, useContext, useEffect, ReactNode } from "react";
 import Cookie from "js-cookie";
 import { gql } from "@apollo/client";
@@ -52,8 +54,6 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     cartCookie ? JSON.parse(cartCookie) : { items: [], total: 0 }
   );
 
-  console.log("cart: ", cart);
-
   useEffect(() => {
     const fetchData = async () => {
       const userData = await getUser();
@@ -67,9 +67,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   }, [cart]);
 
   const addItem = (item) => {
-    console.log("addItem: ", item);
     let newItem = cart.items.find((i) => i.documentId === item.documentId);
-    console.log("newItem: ", newItem);
     if (!newItem) {
       newItem = {
         quantity: 1,
@@ -90,12 +88,11 @@ export const AppProvider = ({ children }: AppProviderProps) => {
   };
 
   const removeItem = (item) => {
-    console.log("removeItem: ", item);
     let newItem = cart.items.find((i) => i.documentId === item.documentId);
     if (newItem.quantity > 1) {
       setCart((prevCart) => ({
         items: prevCart.items.map((i) =>
-          i.id === newItem.id ? { ...i, quantity: i.quantity - 1 } : i
+          i.documentId === newItem.documentId ? { ...i, quantity: i.quantity - 1 } : i
         ),
         total: prevCart.total - item.price,
       }));

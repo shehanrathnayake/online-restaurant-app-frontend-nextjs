@@ -1,6 +1,5 @@
 'use client';
 
-import Cart from "@/components/Cart";
 import Loader from "@/components/Loader";
 import { Navigation } from "@/components/Navigation";
 import { useAppContext } from "@/context/AppContext";
@@ -18,7 +17,6 @@ export default function Restaurant() {
     if (error) return "Error Loading Dishes";
     if (loading) return <Loader />;
 
-    console.log("data:", data)
     if (data.restaurant.dishes.length) {
       const { restaurant } = data;
   
@@ -48,7 +46,6 @@ export default function Restaurant() {
     const { addItem, setShowCart } = useAppContext();
 
     function handleAddItem() {
-      console.log("handleAddItem: ", data);
       addItem(data);
       setShowCart(true);
     }

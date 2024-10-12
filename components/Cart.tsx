@@ -6,8 +6,6 @@ function CartItem({ data }) {
   const { addItem, removeItem } = useAppContext();
 //   const { quantity, attributes } = data;
 
-  console.log("data dart item:", data);
-
   return (
     <div className="p-6 flex flex-wrap justify-between border-b border-blueGray-800">
       <div className="w-2/4">
